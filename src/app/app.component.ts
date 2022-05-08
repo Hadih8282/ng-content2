@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-content2';
+  // title = 'ngContent';
+  @ViewChild('par') par!: ElementRef;
+
+  public onContentChange() {
+    this.par.nativeElement.textContent = 'Content Child Changed!!!';
+  }
+
 }
